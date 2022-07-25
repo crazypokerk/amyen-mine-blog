@@ -1,0 +1,15 @@
+{
+  "name": "my-yarn",
+  "version": "0.0.1",
+  "description": "init yarn",
+  "main": "index.js",
+  "author": "crazypokerk",
+  "license": "MIT",
+  "devDependencies": {
+    "vuepress": "^2.0.0-beta.49"
+  },
+  "scripts": {
+    "docs:dev": "vuepress dev docs",
+    "docs:build": "vuepress build docs"
+  }
+}
