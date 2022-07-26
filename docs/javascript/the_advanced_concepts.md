@@ -1,6 +1,6 @@
 # JavaScript 函数式编程
 
-![1.png](https://cdn.nlark.com/yuque/0/2022/png/25431352/1652338424951-f07794fa-c43e-45e0-a42b-4f8e00de3427.png#clientId=u629a1df2-797a-4&crop=0&crop=0&crop=1&crop=1&from=ui&id=u48d87a0d&margin=%5Bobject%20Object%5D&name=1.png&originHeight=765&originWidth=1370&originalType=binary&ratio=1&rotation=0&showTitle=false&size=1007126&status=done&style=none&taskId=ue01abb89-9a2d-49be-ab4c-60a374323e5&title=)
+![js运行机制](../.vuepress/public/images/the_advanced_concepts_1.png)
 
 <a name="D5DSA"></a>
 
