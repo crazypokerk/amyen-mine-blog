@@ -1,10 +1,15 @@
 const { defaultTheme } = require('@vuepress/theme-default')
 
 module.exports = {
-    title: 'Crazypokerk',
+    head: [
+        [
+            'link', { rel: 'icon', href: '/amyen_icon.png' }
+        ]
+    ],
+    title: 'Young coconut',
     description: 'Favor object composition over class inheritance.',
     theme: defaultTheme({
-        logo: '/images/crown-logo.svg',
+        logo: '/Coconut_logo.svg',
         // 默认主题配置
         home: '/',
         navbar: [
