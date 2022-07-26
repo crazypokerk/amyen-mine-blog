@@ -119,7 +119,10 @@ module.exports = {
                 {
                     text: 'Vue',
                     collapsible: true,
-                    children: ['/vue/junior/Vue-learn.md']
+                    children: [
+                        '/vue/junior/vue2.md',
+                        '/vue/junior/vue3.md'
+                    ]
                 }
             ]
         },

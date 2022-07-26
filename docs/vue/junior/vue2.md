@@ -1,4 +1,4 @@
-# Vue 入门
+# Vue2 入门
 
 [Vue 官网地址](https://vuejs.org/)  
 1、想让 vue 工作，就必须创建一个 vue 实例，且要传入一个配置对象；  
