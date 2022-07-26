@@ -54,13 +54,11 @@ module.exports = {
             '/css/': [
                 {
                     text: 'Part I',
-                    link: '/css/',
                     collapsible: true,
                     children: ['/css/PartI/01-前端简介.md', '/css/PartI/02-前端开发准备.md']
                 },
                 {
                     text: 'Part II',
-                    link: '/css/',
                     collapsible: true,
                     children: [
                         '/css/PartII/03-字符实体与语义标签.md',
@@ -73,7 +71,6 @@ module.exports = {
                 },
                 {
                     text: 'Part III',
-                    link: '/css/',
                     collapsible: true,
                     children: [
                         '/css/PartIII/09-浮动.md',
@@ -89,7 +86,6 @@ module.exports = {
                 },
                 {
                     text: 'Part IV',
-                    link: '/css/',
                     collapsible: true,
                     children: [
                         '/css/PartIV/18-less简介.md',
@@ -100,11 +96,9 @@ module.exports = {
                 },
                 {
                     text: 'Part V',
-                    link: '/css/',
                     collapsible: true,
                     children: [
                         '/css/PartV/22-grid布局.md',
-                        '/css/PartV/23-网页设计思维.md'
                     ]
                 }
             ],
