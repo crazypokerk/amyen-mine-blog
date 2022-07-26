@@ -22,7 +22,7 @@ module.exports = {
                 link: '/guide/first1.md'
             },
             {
-                text: '学习笔记',
+                text: '前端基础',
                 children: [
                     {
                         text: 'CSS',
@@ -31,6 +31,19 @@ module.exports = {
                     {
                         text: 'JavaScript',
                         link: '/javascript/'
+                    }
+                ]
+            },
+            {
+                text: '框架学习',
+                children: [
+                    {
+                        text: 'Vue',
+                        link: '/vue/'
+                    },
+                    {
+                        text: 'React',
+                        link: '/react/'
                     }
                 ]
             }
@@ -100,6 +113,13 @@ module.exports = {
                     text: 'Advanced Concepts',
                     collapsible: true,
                     children: ['/javascript/the_advanced_concepts.md',]
+                }
+            ],
+            '/vue/': [
+                {
+                    text: 'Vue',
+                    collapsible: true,
+                    children: ['/vue/junior/Vue-learn.md']
                 }
             ]
         },

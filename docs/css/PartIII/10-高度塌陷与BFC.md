@@ -1,8 +1,8 @@
 
-<a name="1cfeae1d"></a>
+
 # 浮动
 
-<a name="38878355"></a>
+
 ## 1. 浮动的简介
 
 通过浮动可以使一个元素向其父元素的左侧或右侧移动
@@ -18,7 +18,7 @@
 - 元素设置浮动以后，水平布局的等式便不需要强制成立
 - 元素设置浮动以后，会完全从文档流中脱离，不再占用文档流的位置，所以元素下边的还在文档流中的元素会自动向上移动
 
-<a name="0aa055fb"></a>
+
 ## 2. 浮动的特点
 
 1.  浮动元素会完全脱离文档流，不再占据文档流中的位置 
@@ -136,7 +136,7 @@
 - 浮动目前来讲它的主要作用就是让页面中的元素可以水平排列，通过浮动可以制作一些水平方向的布局
 - 元素设置浮动以后，将会从文档流中脱离，从文档流中脱离后，元素的一些特点也会发生变化
 
-<a name="fbab0858"></a>
+
 ## 3. 脱离文档流的特点
 
 块元素：
@@ -195,7 +195,7 @@
 
 ![](https://img-blog.csdnimg.cn/img_convert/31f093c4c408226697db86c175de52a7.gif#crop=0&crop=0&crop=1&crop=1&id=xzsaq&originalType=binary&ratio=1&rotation=0&showTitle=false&status=done&style=none&title=)
 
-<a name="b56d72b3"></a>
+
 ## 4. 简单布局
 
 **整体样式**
@@ -338,7 +338,7 @@ footer {
 
 ![](https://img-blog.csdnimg.cn/img_convert/d746f592f5bfc6a93f030dafb8e555b4.png#crop=0&crop=0&crop=1&crop=1&id=FOBiD&originalType=binary&ratio=1&rotation=0&showTitle=false&status=done&style=none&title=)
 
-<a name="9d939c57"></a>
+
 ## 5. 练习：w3school 导航条
 
 ![](https://img-blog.csdnimg.cn/img_convert/0cac7c82d3ee4a3916638ea7b6f8abaf.png#crop=0&crop=0&crop=1&crop=1&id=KTdFN&originalType=binary&ratio=1&rotation=0&showTitle=false&status=done&style=none&title=)

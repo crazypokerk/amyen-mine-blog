@@ -1,5 +1,5 @@
 
-<a name="d3536e01"></a>
+
 # less 简介
 
 `less`是一门`css`的预处理语言
@@ -8,14 +8,14 @@
 - 在`less`中添加了许多的新特性：像对变量的支持、对`mixin`的支持...
 - `less`的语法大体上和`css`语法一致，但是`less`中增添了许多对`css`的扩展，所以浏览器无法直接执行`less`代码，要执行必须向将`less`转换为`css`，然后再由浏览器执行
 
-<a name="54671835"></a>
+
 ## 1、安装插件
 
 在`vscode`中搜索`less`，点击`安装`
 
 ![](https://img-blog.csdnimg.cn/img_convert/7649e0d4d1ad3f9179fecb8642287ad0.png#crop=0&crop=0&crop=1&crop=1&id=mpgPb&originHeight=415&originWidth=979&originalType=binary&ratio=1&rotation=0&showTitle=false&status=done&style=none&title=)
 
-<a name="b96306bb"></a>
+
 ## 2、编写 less
 
 **html 代码**
@@ -92,10 +92,10 @@ body .box3 {
 
 ![](https://img-blog.csdnimg.cn/img_convert/97f40a1f8f76041202ac4ef693ad5b36.png#crop=0&crop=0&crop=1&crop=1&id=B1QMN&originHeight=392&originWidth=145&originalType=binary&ratio=1&rotation=0&showTitle=false&status=done&style=none&title=)
 
-<a name="f3ba806f"></a>
+
 ## 3、less 语法
 
-<a name="47149e03"></a>
+
 ### less 注释
 
 `less`中的单行注释，注释中的内容不会被解析到`css`中
@@ -110,7 +110,7 @@ body .box3 {
 */
 ```
 
-<a name="25b30ee6"></a>
+
 ### 父子关系嵌套
 
 在`less`中，父子关系可以直接嵌套
@@ -171,7 +171,7 @@ body .box1 .box2 > .box4 {
 }
 ```
 
-<a name="ddc7d28b"></a>
+
 ### 变量
 
 变量，在变量中可以存储一个任意的值
@@ -241,7 +241,7 @@ body .box1 .box2 > .box4 {
 
 注意：在中使用语法需要用引号包裹`url``less`
 
-<a name="0d98c747"></a>
+
 ### 其他
 
 ```less
@@ -307,7 +307,7 @@ body .box1 .box2 > .box4 {
 - `.p1()` 直接对指定的样式进行引用，这里就相当于将`p1`的样式在这里进行了复制（`mixin` 混合）
 - 使用类选择器时可以在选择器后边添加一个括号，这时我们实际上就创建了一个`mixins`混合函数
 
-<a name="5f645319"></a>
+
 ## 4、混合函数
 
 在混合函数中可以直接设置变量，并且可以指定默认值
@@ -337,7 +337,7 @@ body .box1 .box2 > .box4 {
 }
 ```
 
-<a name="0d98c747-1"></a>
+
 ### 其他
 
 -  `average`混合函数 
@@ -356,7 +356,7 @@ body {
 ```
 <br />生成的`css`代码  
 
-<a name="6d300071"></a>
+
 ## 5、补充
 
 创建`all.less`文件，将我们之前编写的`less`文件通过`@import`引入进来

@@ -1,11 +1,11 @@
 
-<a name="6ffbd50e"></a>
+
 # CSS 语法与选择器
 
-<a name="3c846397"></a>
+
 ## 1. CSS 简介
 
-<a name="c70ea611"></a>
+
 ### 层叠样式表
 
 网页实际上是一个多层的结构，通过 CSS 可以分别为网页的每一个层来设置样式，而最终我们能看到只是网页的最上边一层
@@ -14,7 +14,7 @@
 
 使用 CSS 来修改元素样式的方式大致可以分为 3 种
 
-<a name="a4d141e6"></a>
+
 ### 内联样式（行内样式）
 
 在标签内部通过`style`属性来设置元素的样式
@@ -25,7 +25,7 @@
 
 问题：使用内联样式，样式只能对一个标签生效。如果希望影响到多个元素，必须在每一个元素中都复制一遍；并且当样式发生变化时，我们必须要一个一个的修改，非常的不方便。（注意：开发时绝对不要使用内联样式）
 
-<a name="e8611966"></a>
+
 ### 内部样式表
 
 将样式编写到`head`中的`style`标签里然后通过 css 的选择器来选中元素并为其设置各种样式可以同时为多个标签设置样式，并且修改时只需要修改一处即可。内部样式表更加方便对样式进行复用
@@ -41,7 +41,7 @@ p{
 
 问题：我们的内部样式表只能对一个网页起作用，它里边的样式不能跨页面进行复用
 
-<a name="21bf0fbf"></a>
+
 ### 外部样式表
 
 可以将 css 样式编写到一个外部的 CSS 文件中，然后通过`link`标签来引入外部的 CSS 文件
@@ -54,13 +54,13 @@ p{
 
 将样式编写到外部的 CSS 文件中，可以使用到浏览器的缓存机制，从而加快网页的加载速度，提高用户的体验。
 
-<a name="fa6f4c8f"></a>
+
 ## 2. CSS 基本语法
 
-<a name="ee656aa1"></a>
+
 ### 注释
 
-<a name="fe8a9027"></a>
+
 #### css 中的注释
 
 只能使用`/*`和`*/`包裹。即不管是单行注释，还是多行注释，都是以`/*`开头，以`*/`结尾
@@ -77,7 +77,7 @@ css中的多行注释
 
 我们对比下其他几种前端语言的注释
 
-<a name="f8ba0a2c"></a>
+
 #### html 中的注释
 
 只能使用`<!--`和`-->`包裹。即不管是单行注释，还是多行注释，都是以`<!--`开头，以`-->`结尾
@@ -92,7 +92,7 @@ html中的多行注释
 -->
 ```
 
-<a name="b71a6152"></a>
+
 #### JS(JavaScript)和 JQuery 中的注释
 
 单行注释使用`//`。多行注释使用`/*`和`*/`包裹，以`<!--`开头，以`-->`结尾
@@ -107,19 +107,19 @@ JS(JavaScript)和JQuery中的多行注释
 */
 ```
 
-<a name="c4dd9766"></a>
+
 ### 基本语法
 
 `选择器 声明块`
 
-<a name="22d18bf0"></a>
+
 #### 选择器
 
 通过选择器可以选中页面中的指定元素
 
 - 比如`p`的作用就是选中页面中所有的`p`元素声明块
 
-<a name="3c73ca48"></a>
+
 #### 声明块
 
 通过声明块来指定要为元素设置的样式
@@ -133,10 +133,10 @@ h1 {
 }
 ```
 
-<a name="fecb87a9"></a>
+
 ## 3. CSS 选择器
 
-<a name="5e0dabda"></a>
+
 ### 通配选择器（Universal selector）
 
 - 作用：选中页面中的所有元素
@@ -149,7 +149,7 @@ h1 {
 }
 ```
 
-<a name="d37055e8"></a>
+
 ### 元素选择器（Type selector）
 
 也叫类型选择器、标签选择器
@@ -168,7 +168,7 @@ h1 {
 }
 ```
 
-<a name="fd4c85b2"></a>
+
 ### 类选择器（Class selector）
 
 - 作用：根据元素的 class 属性值选中一组元素
@@ -194,7 +194,7 @@ h1 {
 <p class="blue size">类选择器（Class selector）</p>
 ```
 
-<a name="0a8ecdb0"></a>
+
 ### ID 选择器（ID selector）
 
 - 作用：根据元素的`id`属性值选中一个元素
@@ -207,7 +207,7 @@ h1 {
 }
 ```
 
-<a name="32d2aeed"></a>
+
 ### 属性选择器（Attribute selector）
 
 - 作用：根据元素的属性值选中一组元素
@@ -236,10 +236,10 @@ p[title*="e"] {
 }
 ```
 
-<a name="afc648bb"></a>
+
 ## 4. 复合选择器
 
-<a name="f45b3982"></a>
+
 ### 交集选择器
 
 - 作用：选中同时复合多个条件的元素
@@ -256,7 +256,7 @@ div.red {
 }
 ```
 
-<a name="83f53542"></a>
+
 ### 并集选择器（选择器分组）
 
 - 作用：同时选择多个选择器对应的元素
@@ -270,7 +270,7 @@ span {
 }
 ```
 
-<a name="8f204775"></a>
+
 ## 5. 关系选择器
 
 - 父元素：直接包含子元素的元素叫做父元素
@@ -279,7 +279,7 @@ span {
 - 后代元素：直接或间接被祖先元素包含的元素叫做后代元素；子元素也是后代元素
 - 兄弟元素：拥有相同父元素的元素是兄弟元素
 
-<a name="d9997a18"></a>
+
 ### 子元素选择器（Child combinator）
 
 - 作用：选中指定父元素的指定子元素
@@ -292,7 +292,7 @@ div.box > p > span {
 }
 ```
 
-<a name="d688a42c"></a>
+
 ### 后代元素选择器（Descendant combinator）
 
 - 作用：选中指定元素内的指定后代元素
@@ -305,7 +305,7 @@ div span {
 }
 ```
 
-<a name="510eb833"></a>
+
 ### 兄弟元素选择器（Sibling combinator）
 
 - 作用：选择下一个兄弟
@@ -324,7 +324,7 @@ p ~ span {
 }
 ```
 
-<a name="35be032e"></a>
+
 ## 6. 伪类选择器
 
 伪类（不存在的类，特殊的类）
@@ -409,7 +409,7 @@ a:active {
 
 ![](https://img-blog.csdnimg.cn/img_convert/afda6908ddd6c7e9cab45751aabbcb5c.gif#crop=0&crop=0&crop=1&crop=1&id=mylR9&originHeight=249&originWidth=749&originalType=binary&ratio=1&rotation=0&showTitle=false&status=done&style=none&title=)
 
-<a name="604a6cfb"></a>
+
 ## 7. 伪元素选择器
 
 伪元素，表示页面中一些特殊的并不真实的存在的元素（特殊的位置）
@@ -454,7 +454,7 @@ div::after {
 
 ![](https://img-blog.csdnimg.cn/img_convert/d00bc5df427763fc326a624449e0eec2.gif#crop=0&crop=0&crop=1&crop=1&id=hY5fo&originHeight=417&originWidth=1915&originalType=binary&ratio=1&rotation=0&showTitle=false&status=done&style=none&title=)
 
-<a name="5cc473bb"></a>
+
 ## 8. CSS Dinner 游戏
 
 官方地址：[CSS Diner - Where we feast on CSS Selectors!](https://flukeout.github.io/)

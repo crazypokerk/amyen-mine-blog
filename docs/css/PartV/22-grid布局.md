@@ -1,5 +1,3 @@
-<a name="h3I9j"></a>
-
 # 什么是 CSS grid？
 
 CSS grid 可以和 flex 布局相互搭配，相得益彰。flex 布局主要用于一维布局，CSS grid 主要用于二维布局。<br />![css_22_1.png](../../.vuepress/public/images/css_22_1.png)
