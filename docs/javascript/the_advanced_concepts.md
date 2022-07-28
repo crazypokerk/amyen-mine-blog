@@ -2,11 +2,7 @@
 
 ![js运行机制](../.vuepress/public/images/the_advanced_concepts_1.png)
 
-<a name="D5DSA"></a>
-
 ## 浏览器中的优化：
-
-<a name="xUxZf"></a>
 
 ### [hidden class](https://medium.com/swlh/writing-optimized-code-in-js-by-understanding-hidden-classes-3dd42862ad1d)
 
@@ -23,8 +19,6 @@ obj2.b = 100
 obj2.a = 50
 ```
 
-<a name="EGFwL"></a>
-
 ### inline caching
 
 ```javascript
@@ -39,8 +33,6 @@ for(let i=0; i<1000; i++){
   console.log(findUser(user);
 }
 ```
-
-<a name="lKVo2"></a>
 
 ## Memory Leak
 
@@ -61,8 +53,6 @@ setInterval(() => {
 ```
 
 [**模拟 JS 执行的网站**](http://latentflip.com/loupe)
-
-<a name="VXZ2x"></a>
 
 ## call() / apply()
 
@@ -111,8 +101,6 @@ wizard.heal.apply(archer, [66, 99])
 ```
 
 JavaScript 类型转换（type coercison）<br />[https://dorey.github.io/JavaScript-Equality-Table/](https://dorey.github.io/JavaScript-Equality-Table/)
-
-<a name="DLBNR"></a>
 
 ## Closure
 
@@ -175,8 +163,6 @@ const ohno = makeNuclearButton()
 ohno.totalPeaceTime()
 ```
 
-<a name="W2yuU"></a>
-
 ### 闭包练习一
 
 ```javascript
@@ -201,8 +187,6 @@ function initialize() {
   }
 }
 ```
-
-<a name="oBiSM"></a>
 
 ### 闭包练习二
 
@@ -237,8 +221,6 @@ for (var i = 0; i < array.length; i++) {
 }
 ```
 
-<a name="zs3Tf"></a>
-
 ## prototype / **proto**
 
 ```javascript
@@ -270,8 +252,6 @@ console.log([1, 2, 3].map())
 // 1🌍, 2🌍, 3🌍
 ```
 
-<a name="nlehi"></a>
-
 #### Object.create();
 
 ```javascript
@@ -292,8 +272,6 @@ console.log(peter.attack())
 const sam = createElf('Sam', 'fire')
 console.log(sam.attack())
 ```
-
-<a name="aLEqk"></a>
 
 #### Constructor Functions
 
@@ -327,8 +305,6 @@ console.log(sam.attack())
 console.log(peter.build()())
 ```
 
-<a name="VqbFn"></a>
-
 #### ES6 Class
 
 ```javascript
@@ -342,8 +318,6 @@ class Elf {
   }
 }
 ```
-
-<a name="Pjq91"></a>
 
 #### this 4 ways
 
@@ -387,8 +361,6 @@ const person4 = {
   },
 }
 ```
-
-<a name="qB7Ti"></a>
 
 ## Functional Programming
 
@@ -502,8 +474,6 @@ const partialMultiplyBy5 = multiply.bind(null, 5)
 partialMultiplyBy5(4, 10)
 // 200
 ```
-
-<a name="Olf5L"></a>
 
 ### Memoization
 
@@ -622,8 +592,6 @@ console.log(result)
 //  accept refunds.
 //  Track user history.
 ```
-
-<a name="xUbw8"></a>
 
 ## Asynchronous Javascript
 
@@ -815,7 +783,6 @@ console.log('3', 'is a crowd')
 ```
 
 web worker
-<a name="oKKaJ"></a>
 
 ## Modules in Javascript
 
