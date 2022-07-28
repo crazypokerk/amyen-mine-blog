@@ -1,3 +1,11 @@
+---
+home: true
+heroImage: /homepage.png
+heroText: null
+
+footer: MIT Licensed | Copyright © 2022-present Erik X
+---
+
 ### 💻 代码相关
 
 - [codepen](https://codepen.io/)

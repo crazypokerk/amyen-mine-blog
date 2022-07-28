@@ -14,14 +14,6 @@ module.exports = {
         home: '/',
         navbar: [
             {
-                text: 'home',
-                link: '/',
-            },
-            {
-                text: 'about',
-                link: '/guide/first1.md'
-            },
-            {
                 text: '前端基础',
                 children: [
                     {
@@ -31,6 +23,10 @@ module.exports = {
                     {
                         text: 'JavaScript',
                         link: '/javascript/'
+                    },
+                    {
+                        text: 'TypeScript',
+                        link: '/typescript/'
                     }
                 ]
             },
@@ -46,7 +42,16 @@ module.exports = {
                         link: '/react/'
                     }
                 ]
-            }
+            },
+            {
+                text: 'Home',
+                link: '/',
+            },
+            {
+                text: 'About',
+                link: '/guide/about.md'
+            },
+
         ],
         // 侧边栏数组
         // 所有页面会使用相同的侧边栏
