@@ -2,6 +2,7 @@
 home: true
 heroImage: /homepage.png
 heroText: null
+tagline: null
 
 footer: MIT Licensed | Copyright © 2022-present Erik X
 ---
