@@ -123,6 +123,15 @@ module.exports = {
                         '/vue/junior/vue3.md'
                     ]
                 }
+            ],
+            '/typescript/': [
+                {
+                    text: '建立一个Web框架',
+                    collapsible: true,
+                    children: [
+                        '/typescript/建立一个web框架.md'
+                    ]
+                }
             ]
         },
         backToHome: '返回首页'
