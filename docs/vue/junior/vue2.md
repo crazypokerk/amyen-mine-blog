@@ -1,27 +1,50 @@
 # Vue2 入门
 
 [Vue 官网地址](https://vuejs.org/)
+
 1、想让 vue 工作，就必须创建一个 vue 实例，且要传入一个配置对象；
+
 2、root 容器里的代码依然符合 html 规范，只不过混入了一些特殊的 vue 语法；
+
 3、root 容器里的代码被称为【vue 模板】；
+
 4、vue 实例和容器是一一对应的；
+
 5、真实开发中只有一个 vue 实例，并且会配合着组件一起使用；
+
 6、{{xxx}}中的 xxx 要写 js 表达式，且 xxx 可以自动读取到 data 中的所有属性；
+
 7、一旦 data 中的数据发生改变，那么页面中用到该数据的地方也会自动更新；
 
 ## 两大类模板语法
 
-1、插值语法：
-功能：用于解析标签体内容
-写法：`{{xxx}}`，`xxx`可以为变量，还可以是简单 js 表达式，且可以直接读取到`data`中的所有属性 ；
-2、指令语法：
-功能：用于解析标签（包括：标签属性、标签体内容、绑定事件......）
-举例：`v-bind:href="xxx"`或 简写为：`href="xxx"`，`xxx`同样要写 js 表达式，且可以直接读取到 data 中的所有属性 ；
-备注：vue 中有很多的指令，且形式都是`v-???`，此处只是拿 `v-bind` 举例
+### 插值语法
+
+功能
+
+用于解析标签体内容
+写法
+
+`{{xxx}}`，`xxx`可以为变量，还可以是简单 js 表达式，且可以直接读取到`data`中的所有属性 ；
+
+### 指令语法
+
+#### 功能
+
+用于解析标签（包括：标签属性、标签体内容、绑定事件......）
+
+#### 写法
+
+`v-bind:href="xxx"`或 简写为：`href="xxx"`，`xxx`同样要写 js 表达式，且可以直接读取到 data 中的所有属性 ；
+
+#### 备注
+
+vue 中有很多的指令，且形式都是`v-???`，此处只是拿 `v-bind` 举例
 
 ## 两种数据绑定方式
 
 1、单向绑定(`v-bind`)：数据只能从 data 流向页面 **Use v-model when you can.**
+
 2、双向绑定(`v-model`)：数据不仅能从 data 流向页面，也可以从页面流向 data **Use v-bind/v-on when you must.**
 
 其实`v-model` 像是` v-on` 和 `v-bind` 的结合实现。
@@ -133,7 +156,7 @@ vue 中的数据代理：
 
 - `@click="funcName"` 和 `@click="funcName($event)"` 效果一致，但后者可以传参，$event 为事件参数占位；
 
-- `event.target.value`可以参考[EventTarget.addEventListener()]([EventTarget.addEventListener() - Web APIs | MDN (mozilla.org)](https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener#the_event_listener_callback))。
+- `event.target.value`可以参考[EventTarget.addEventListener()](https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener#the_event_listener_callback)
 
   ```javascript
   // script is loading before body, keep script after body
@@ -174,12 +197,14 @@ vue 中的事件修饰符（`event.preventDefault()`）：
 - 右 => `right`
 
 2、vue 未提供别名的按键，可以使用按键原始的 key 值去绑定，但注意要转为`xxx-xxx`（短横线命名），如 `CapsLock => caps-lock` ；
+
 3、系统修饰键（用法特殊）：ctrl、alt、shift、meta ；
 
 - 配合 `keyup` 使用：按下修饰键的同时，再按下其他键，随后释放其他键，事件才被触发；
 - 配合 `keydown` 使用：正常触发事件。
 
 4、也可以使用 `keyCode` 去指定具体的按键（不推荐）；
+
 5、`Vue.config.keyCodes.自定义键名 = 键码`，可以去定制按键别名。
 
 ## 计算属性
@@ -272,7 +297,9 @@ vm.$watch({'isHot',{
 - 配置 `deep:true` 可以监视对象内部值的改变（多层）。
 
 备注
+
 （1）Vue 自身可以监测对象内部值的改变，但 Vue 提供的 `watch` 默认不可以！
+
 （2）使用 `watch` 时根据数据的具体结构，决定是否采用深度监视。
 
 ### `comuted` 和 `watch` 的区别
