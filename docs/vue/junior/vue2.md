@@ -1,29 +1,66 @@
-# Vue2 入门
+# Vue 入门
 
-[Vue 官网地址](https://vuejs.org/)
+[Vue 官网地址](https://vuejs.org/)<br/>
+1、想让 vue 工作，就必须创建一个 vue 实例，且要传入一个配置对象；<br/>
+2、root 容器里的代码依然符合 html 规范，只不过混入了一些特殊的 vue 语法；<br/>
+3、root 容器里的代码被称为【vue 模板】；<br/>
+4、vue 实例和容器是一一对应的；<br/>
+5、真实开发中只有一个 vue 实例，并且会配合着组件一起使用；<br/>
+6、{{xxx}}中的 xxx 要写 js 表达式，且 xxx 可以自动读取到 data 中的所有属性；<br/>
+7、一旦 data 中的数据发生改变，那么页面中用到该数据的地方也会自动更新；<br/>
 
-1、想让 vue 工作，就必须创建一个 vue 实例，且要传入一个配置对象；
+## 虚拟`DOM`
 
-2、root 容器里的代码依然符合 html 规范，只不过混入了一些特殊的 vue 语法；
+![instance-virtualdom-browserdom](./../../.vuepress/public/images/vue-img/instance-virtualdom-browserdom.svg)
 
-3、root 容器里的代码被称为【vue 模板】；
+## 两大 API 风格
 
-4、vue 实例和容器是一一对应的；
+1. 选项式 API
 
-5、真实开发中只有一个 vue 实例，并且会配合着组件一起使用；
+   `main.js`
 
-6、{{xxx}}中的 xxx 要写 js 表达式，且 xxx 可以自动读取到 data 中的所有属性；
+   ```javascript
+   import createApp from 'vue'
+   import App from './App.vue'
 
-7、一旦 data 中的数据发生改变，那么页面中用到该数据的地方也会自动更新；
+   const app = createApp(App)
+   app.mount('#app')
+   ```
+
+   `xxx.vue`
+
+   ```vue
+   <script>
+   export default {
+     data() {
+       return {}
+     },
+     methods: {},
+     computed: {},
+     watch: {},
+     components: {},
+     props: [],
+     inject: [],
+     provide() {
+       return {}
+     },
+   }
+   </script>
+   ```
+
+2. 组合式 API
+
+   [组合式 API 常见问答 | Vue.js (vuejs.org)](https://cn.vuejs.org/guide/extras/composition-api-faq.html)
 
 ## 两大类模板语法
 
 ### 插值语法
 
-功能
+#### 功能
 
 用于解析标签体内容
-写法
+
+#### 写法
 
 `{{xxx}}`，`xxx`可以为变量，还可以是简单 js 表达式，且可以直接读取到`data`中的所有属性 ；
 
@@ -31,7 +68,7 @@
 
 #### 功能
 
-用于解析标签（包括：标签属性、标签体内容、绑定事件......）
+用于解析标签（包括：标签属性、标签体内容、绑定事件等等）
 
 #### 写法
 
@@ -44,7 +81,6 @@ vue 中有很多的指令，且形式都是`v-???`，此处只是拿 `v-bind` �
 ## 两种数据绑定方式
 
 1、单向绑定(`v-bind`)：数据只能从 data 流向页面 **Use v-model when you can.**
-
 2、双向绑定(`v-model`)：数据不仅能从 data 流向页面，也可以从页面流向 data **Use v-bind/v-on when you must.**
 
 其实`v-model` 像是` v-on` 和 `v-bind` 的结合实现。
@@ -156,7 +192,7 @@ vue 中的数据代理：
 
 - `@click="funcName"` 和 `@click="funcName($event)"` 效果一致，但后者可以传参，$event 为事件参数占位；
 
-- `event.target.value`可以参考[EventTarget.addEventListener()](https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener#the_event_listener_callback)
+- `event.target.value`可以参考[EventTarget.addEventListener()]([EventTarget.addEventListener() - Web APIs | MDN (mozilla.org)](https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener#the_event_listener_callback))。
 
   ```javascript
   // script is loading before body, keep script after body
@@ -196,16 +232,14 @@ vue 中的事件修饰符（`event.preventDefault()`）：
 - 左 => `left`
 - 右 => `right`
 
-2、vue 未提供别名的按键，可以使用按键原始的 key 值去绑定，但注意要转为`xxx-xxx`（短横线命名），如 `CapsLock => caps-lock` ；
-
-3、系统修饰键（用法特殊）：ctrl、alt、shift、meta ；
+vue 未提供别名的按键，可以使用按键原始的 key 值去绑定，但注意要转为`xxx-xxx`（短横线命名），如 `CapsLock => caps-lock`；
+系统修饰键（用法特殊）：`ctrl`、`alt`、`shift`、`meta`；
 
 - 配合 `keyup` 使用：按下修饰键的同时，再按下其他键，随后释放其他键，事件才被触发；
 - 配合 `keydown` 使用：正常触发事件。
 
-4、也可以使用 `keyCode` 去指定具体的按键（不推荐）；
-
-5、`Vue.config.keyCodes.自定义键名 = 键码`，可以去定制按键别名。
+也可以使用 `keyCode` 去指定具体的按键（不推荐）；
+`Vue.config.keyCodes.自定义键名 = 键码`，可以去定制按键别名。
 
 ## 计算属性
 
@@ -296,11 +330,10 @@ vm.$watch({'isHot',{
 - Vue 中的 `watch` 默认不监测对象内部值的改变（一层）；
 - 配置 `deep:true` 可以监视对象内部值的改变（多层）。
 
-备注
+#### 备注
 
-（1）Vue 自身可以监测对象内部值的改变，但 Vue 提供的 `watch` 默认不可以！
-
-（2）使用 `watch` 时根据数据的具体结构，决定是否采用深度监视。
+1. Vue 自身可以监测对象内部值的改变，但 Vue 提供的 `watch` 默认不可以！
+2. 使用 `watch` 时根据数据的具体结构，决定是否采用深度监视。
 
 ### `comuted` 和 `watch` 的区别
 
@@ -309,7 +342,7 @@ vm.$watch({'isHot',{
 
 ### 两个重要的小原则
 
-1. 所被 Vue 管理的函数，最好写成**普通函数**，这样 `this` 的指向才是 vm 或 组件实例对象；
+1. 所被 Vue 管理的函数，最好写成**普通函数**，这样 `this` 的指向才是 `vm` 或 组件实例对象；
 
 2. 所有不被 Vue 所管理的函数（定时器的回调函数、ajax 的回调函数等），最好写成箭头函数，这样 this 的指向才是 vm 或 组件实例对象。
 
@@ -340,7 +373,7 @@ vm.$watch({'isHot',{
 
 #### 注意
 
-`v-if` 可以和 `v-else-if`、`v-else` 一起使用，但要求结构不能被“打断”
+`v-if` 可以和 `v-else-if`、`v-else` 一起使用，但要求结构不能被“打断”，
 
 ### `v-show`
 
@@ -376,7 +409,7 @@ vm.$watch({'isHot',{
 
 ## key 相关面试题目
 
-问：react、vue 中的 key 有什么作用？（key 的内部原理）
+react、vue 中的 key 有什么作用？（key 的内部原理）
 1、虚拟 DOM 中 key 的作用：
 key 是虚拟 DOM 对象的标识，当数据发生变化时，Vue 会根据【新数据】生成【新的虚拟 DOM】，随后 Vue 进行【新的虚拟 DOM】与【旧的虚拟 DOM】的差异比较， 比较规则如下。
 2、对比规则：
@@ -442,6 +475,7 @@ trim：输入首尾空格过滤
 ### `v-cloak` 指令（没有值）
 
 1. 本质是一个特殊属性，Vue 实例创建完毕并接管容器后，会删掉 `v-cloak` 属性。
+
 2. 使用 css 配合 `v-cloak` 可以解决网速慢时页面展示出 `{{xxx}}` 的问题。
 
 ### `v-once` 指令
@@ -491,9 +525,14 @@ Vue.directive(指令名, 回调函数)
 ## 生命周期
 
 1. 又名：生命周期回调函数、生命周期函数、生命周期钩子；
+
 2. 是什么：Vue 在关键时刻帮我们调用的一些特殊名称的函数；
+
 3. 生命周期函数的名字不可更改，但函数的具体内容是程序员根据需求编写的；
+
 4. 生命周期函数中的 this 指向是 vm 或 组件实例对象。
+
+   ![vue-lifecycle](./../../.vuepress/public/images/vue-img/vue-lifecycle.png)
 
 ## 组件化
 
@@ -696,8 +735,8 @@ props:{
     2). 一些组件在用：放在他们共同的父组件上（状态提升）。
     (3).实现交互：从绑定事件开始。
 1.  props 适用于：
-    (1).父组件 ==> 子组件 通信
-    (2).子组件 ==> 父组件 通信（要求父先给子一个函数）
+    (1).父组件 ----> 子组件 通信
+    (2).子组件 ----> 父组件 通信（要求父先给子一个函数）
 1.  使用 v-model 时要切记：v-model 绑定的值不能是 props 传过来的值，因为 props 是不可以修改的！
 1.  props 传过来的若是对象类型的值，修改对象中的属性时 Vue 不会报错，但不推荐这样做。 Vue 只会检测浅层次的 props 改变，比如直接改 props 里的变量值，或者直接更改对象的引用，那么控制台会提示报错，但是如果只是更改对象里的熟悉，Vue 检测不到，也就不会报错，但不要这么用！！！
 
@@ -733,7 +772,7 @@ props:{
 
 ### 组件的自定义事件
 
-1. 一种组件间通信的方式，适用于：**子组件 ===> 父组件**
+1. 一种组件间通信的方式，适用于：**子组件 ----> 父组件**
 
 1. 使用场景：A 是父组件，B 是子组件，B 想给 A 传数据，那么就要在 A 中给 B 绑定自定义事件（事件的回调在 A 中）。
 
@@ -799,7 +838,7 @@ mounted() {
 }
 ```
 
-​ 提供数据：`this.$bus.$emit('xxxx',数据)`
+ 提供数据：`this.$bus.$emit('xxxx',数据)`
 
 最好在 `beforeDestroy` 钩子中，用 `$off` 去解绑当前组件所用到的事件。
 
@@ -825,7 +864,7 @@ mounted() {
 }
 ```
 
-​ 提供数据：`pubsub.publish('xxx',数据)`
+ 提供数据：`pubsub.publish('xxx',数据)`
 
 最好在 `beforeDestroy` 钩子中，用`PubSub.unsubscribe(pid)`去取消订阅。
 
@@ -843,7 +882,7 @@ this.$nextTick(回调函数)`
 
 当改变数据后，要基于更新后的新 DOM 进行某些操作时，要在 nextTick 所指定的回调函数中执行。
 
-### Vue 封装的过度与动画（91~104）
+### Vue 封装的过度与动画
 
 1.  作用：在插入、更新或移除 DOM 元素时，在合适的时候给元素添加样式类名。
 1.  写法：
@@ -1026,6 +1065,14 @@ export default {
 
 ## `Vuex`
 
+### 为什么要使用`Vuex`
+
+![wyn-use-vuex](./../../.vuepress/public/images/vue-img/wyn-use-vuex.svg)
+
+### `Vuex`工作原理
+
+![how-vuex-works](./../../.vuepress/public/images/vue-img/how-vuex-works.svg)
+
 ### 概念
 
 在 Vue 中实现集中式状态（数据）管理的一个 Vue 插件，对 Vue 应用中多个组件的共享状态进行集中式的管理（读/写），也是一种组件间通信的方式，且适用于任意组件间通信。
@@ -1118,11 +1165,9 @@ export default new Vuex.Store({
 })
 ```
 
-2. 组件中读取 vuex 中的数据：`$store.state.sum`
-
-3. 组件中修改 vuex 中的数据：`$store.dispatch('action中的方法名',数据)` 或 `$store.commit('mutations中的方法名',数据)`
-
-   > 备注：若没有网络请求或其他业务逻辑，组件中也可以越过 actions，即不写`dispatch`，直接编写`commit`
+2.  组件中读取 vuex 中的数据：`$store.state.sum`
+3.  组件中修改 vuex 中的数据：`$store.dispatch('action中的方法名',数据)` 或 `$store.commit('mutations中的方法名',数据)`
+    > 备注：若没有网络请求或其他业务逻辑，组件中也可以越过 actions，即不写`dispatch`，直接编写`commit`
 
 ### `getters` 的使用
 
@@ -1149,14 +1194,16 @@ export default new Vuex.Store({
 
 ### 四个 map 方法的使用
 
+使用需要引入：`import { mapState, mapGetters, mapActions, mapMutations } from 'vuex';`
+
 1.  **mapState 方法：**用于帮助我们映射`state`中的数据为计算属性
 
 ```javascript
 computed: {
-    //借助mapState生成计算属性：sum、school、subject（对象写法）
+    // 借助mapState生成计算属性：sum、school、subject（对象写法）
      ...mapState({sum:'sum',school:'school',subject:'subject'}),
 
-    //借助mapState生成计算属性：sum、school、subject（数组写法）
+    // 借助mapState生成计算属性：sum、school、subject（数组写法）
     ...mapState(['sum','school','subject']),
 },
 ```
@@ -1165,10 +1212,10 @@ computed: {
 
 ```javascript
 computed: {
-    //借助mapGetters生成计算属性：bigSum（对象写法）
+    // 借助mapGetters生成计算属性：bigSum（对象写法）
     ...mapGetters({bigSum:'bigSum'}),
 
-    //借助mapGetters生成计算属性：bigSum（数组写法）
+    // 借助mapGetters生成计算属性：bigSum（数组写法）
     ...mapGetters(['bigSum'])
 },
 ```
@@ -1177,11 +1224,20 @@ computed: {
 
 ```javascript
 methods:{
-    //靠mapActions生成：incrementOdd、incrementWait（对象形式）
+    // 靠mapActions生成：incrementOdd、incrementWait（对象形式）
     ...mapActions({incrementOdd:'jiaOdd',incrementWait:'jiaWait'})
 
-    //靠mapActions生成：incrementOdd、incrementWait（数组形式）
+    // 靠mapActions生成：incrementOdd、incrementWait（数组形式）
     ...mapActions(['jiaOdd','jiaWait'])
+
+    // 如果想给action传入payload
+    // 第一个参数是 namespaced 名，第二个参数是 action 方法名
+	...mapActions('carts', ['removeProduct']),
+	remove() {
+		this.removeProduct(yourPayload)
+	}
+    // 等同于
+    this.$store.dispatch('carts/removeProduct', yourPayload)
 }
 ```
 
@@ -1189,10 +1245,10 @@ methods:{
 
 ```javascript
 methods:{
-    //靠mapActions生成：increment、decrement（对象形式）
+    // 靠mapActions生成：increment、decrement（对象形式）
     ...mapMutations({increment:'JIA',decrement:'JIAN'}),
 
-    //靠mapMutations生成：JIA、JIAN（对象形式）
+    // 靠mapMutations生成：JIA、JIAN（对象形式）
     ...mapMutations(['JIA','JIAN']),
 }
 ```
@@ -1206,7 +1262,7 @@ methods:{
 
 ```javascript
 const countAbout = {
-  namespaced:true,//开启命名空间
+  namespaced: true,//开启命名空间
   state:{x:1},
   mutations: { ... },
   actions: { ... },
@@ -1278,33 +1334,95 @@ this.$store.commit('personAbout/ADD_PERSON',person)
 
 ### 基本使用
 
-1.  安装 vue-router，命令：`npm i vue-router`
-1.  应用插件：`Vue.use(VueRouter)`
-1.  编写 router 配置项:
+1. 安装 vue-router，命令：`npm i vue-router`
+
+   `npm install --save vue-router@next`可以安装最新版本的路由包
+
+1. 应用插件：`Vue.use(VueRouter)`
+
+1. 路由历史记录：`history: createWebHistory()`
+
+1. 编写 router 配置项：
 
 ```javascript
-//引入VueRouter
-import VueRouter from 'vue-router'
-//引入Luyou 组件
-import About from '../components/About'
-import Home from '../components/Home'
+import { createApp } from 'vue';
 
+import App from './App.vue';
+
+import { createRouter, createWebHistory } from 'vue-router'
+import TeamsList from './components/teams/TeamsList.vue';
+import UsersList from './components/users/UsersList.vue';
+import TeamMembers from './components/teams/TeamMembers'
+import NotFoundPage from './components/NotFoundPage.vue'
+
+import TeamFooter from '@/components/teams/TeamFooter'
+import UsersFooter from '@/components/users/UsersFooter'
+
+const app = createApp(App
+                      
 //创建router实例对象，去管理一组一组的路由规则
-const router = new VueRouter({
-  routes: [
-    {
-      path: '/about',
-      component: About,
-    },
-    {
-      path: '/home',
-      component: Home,
-    },
-  ],
+const router = createRouter({
+    history: createWebHistory(),
+    routes: [
+        { path: '/', redirect: '/teams' },
+        {
+            // alias
+            // 路由配合 <router-link></router-link> 使用
+            name: 'teams',
+            // 使用 name 属性可以有更好的维护性，想要更改 name 对应的路由路径只需改 path 即可
+            path: '/teams',
+            // meta: {}
+            components: {
+                default: TeamsList,
+                footer: TeamFooter
+            },
+            children: [
+                // 嵌套子路由配合 <router-view></router-view> 使用
+                { name: 'team-members', path: ':teamId', component: TeamMembers, props: true }
+            ]
+        },
+        {
+            path: '/users', components: {
+                default: UsersList, footer: UsersFooter
+            },
+            beforeEnter() {
+                console.log(2)
+            }
+        },
+        // 正则表达式，匹配所有未知页面
+        { path: '/:notFound(.*)*', component: NotFoundPage }
+    ],
+    linkActiveClass: 'active',
+    scrollBehavior(to, from, savedPosition) {
+        if (savedPosition) {
+            return savedPosition
+        }
+
+        return { left: 0, top: 0 }
+    }
 })
 
-//暴露router
-export default router
+router.beforeEach(function (to, from, next) {
+    console.log(1)
+    console.log(to, from)
+    next()
+})
+
+// 路由守卫加载顺序：
+//  router.beforeEach --> routes: beforeEnter --> components: beforeRouteEnter
+// 当前页面更新组件可以使用: beforeRouteUpdate
+
+// router.afterEach(function (to, from) {
+
+// })
+
+// route leave guards
+// 应用场景：比如有一个表单，希望确保在保存表单之前，至少警告下用户存在未保存更改的内容，如果离开页面，这些更改将丢失。
+// beforeRouteLeave() {}
+
+app.use(router)
+
+app.mount('#app');
 ```
 
 4.  实现切换（active-class 可配置高亮样式）
@@ -1319,7 +1437,7 @@ export default router
 <router-view></router-view>
 ```
 
-## 坑的地方
+### 坑的地方
 
 如果使用的是 vue2 的 脚手架，那么下载 vue-router 的版本应该是 3，也就是安装时执行以下脚本：
 
@@ -1633,8 +1751,8 @@ this.$router.go() //可前进也可后退
 #### 具体名字
 
 1. `activated`路由组件被激活时触发。
-2. `deactivated`路由组件失活时触发。
-3. 要配合\<keep-alive\>标签使用，保证路由组件不销毁。
+1. `deactivated`路由组件失活时触发。
+1. 要配合\<keep-alive\>标签使用，保证路由组件不销毁。
 
 ### 路由守卫
 
@@ -1709,12 +1827,12 @@ beforeRouteLeave (to, from, next) {
 ### 路由器的两种工作模式
 
 1. 对于一个 url 来说，什么是 hash 值？—— #及其后面的内容就是 hash 值。
-2. hash 值不会包含在 HTTP 请求中，即：hash 值不会带给服务器。
-3. hash 模式：
+1. hash 值不会包含在 HTTP 请求中，即：hash 值不会带给服务器。
+1. hash 模式：
    1. 地址中永远带着#号，不美观 。
-   2. 若以后将地址通过第三方手机 app 分享，若 app 校验严格，则地址会被标记为不合法。
-   3. 兼容性较好。
-4. history 模式：
+   1. 若以后将地址通过第三方手机 app 分享，若 app 校验严格，则地址会被标记为不合法。
+   1. 兼容性较好。
+1. history 模式：
    1. 地址干净，美观 。
-   2. 兼容性和 hash 模式相比略差。
-   3. 应用部署上线时需要后端人员支持，解决刷新页面服务端 404 的问题。
+   1. 兼容性和 hash 模式相比略差。
+   1. 应用部署上线时需要后端人员支持，解决刷新页面服务端 404 的问题。
