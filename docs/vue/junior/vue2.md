@@ -22,7 +22,7 @@
    ```javascript
    import createApp from 'vue'
    import App from './App.vue'
-
+   
    const app = createApp(App)
    app.mount('#app')
    ```
@@ -48,9 +48,15 @@
    </script>
    ```
 
-2. 组合式 API
+2. 组合式 API & 选项式API [组合式 API 常见问答 | Vue.js (vuejs.org)](https://cn.vuejs.org/guide/extras/composition-api-faq.html)
+
+   ![OptionsAPI&CompositionAPI](../../.vuepress/public/images/vue-img/OptionsAPI&CompositionAPI.svg)
+
+3. 组合式钩子 & 选项式钩子
 
    [组合式 API 常见问答 | Vue.js (vuejs.org)](https://cn.vuejs.org/guide/extras/composition-api-faq.html)
+
+   ![Options&CompositionHooks](../../.vuepress/public/images/vue-img/Options&CompositionHooks.svg)
 
 ## 两大类模板语法
 
@@ -407,52 +413,91 @@ vm.$watch({'isHot',{
 
 可遍历：数组、对象、字符串（用的很少）、指定次数（用的很少）
 
-## key 相关面试题目
+## Form表单数据
 
-react、vue 中的 key 有什么作用？（key 的内部原理）
-1、虚拟 DOM 中 key 的作用：
-key 是虚拟 DOM 对象的标识，当数据发生变化时，Vue 会根据【新数据】生成【新的虚拟 DOM】，随后 Vue 进行【新的虚拟 DOM】与【旧的虚拟 DOM】的差异比较， 比较规则如下。
-2、对比规则：
-（1）【旧的虚拟 DOM】中找到了与【新的虚拟 DOM】相同的 key：
-a 若虚拟 DOM 中内容没有变化，直接使用之前的真实 DOM（复用）
-b 若虚拟 DOM 中内容发生变化，则生成新的真实 DOM，随后替换掉页面中之前的真实 DOM
-（2）【旧的虚拟 DOM】中未找到与【新的虚拟 DOM】相同的 key
-创建新的真实 DOM，随后渲染到页面上
-3、用 index 作为 key 可能会引发的问题：
-（1）若对数据进行：逆序添加、逆序删除等破坏顺序的操作，会产生没有必要的真实 DOM 更新 ==> 界面效果没有问题，但会影响效率
-（2）如果结构中还包含输入类的 DOM，那么会产生错误 DOM 更新 ==> 界面会出问题
-4、开发中如何选择 key？
-（1）最好使用每条数据的唯一标识作为 key，如 ID、手机号、身份证号码、学号等等唯一值；
-（2）如果不存在对数据的逆序添加、逆序删除等破坏顺序的操作，仅用于渲染列表用于展示，使用 index 作为 key 也没有问题
-（3）如果没有指定 key，默认值为 index
+1、若`\<input type="text"/>`，则`v-model`收集的是`value`值，用户输入的就是`value`值；
 
-Vue 监视数据的原理：（数据劫持）
-1、Vue 会监视 data 中所有层次的数据；
-2、如何监视对象中的数据？
-通过 setter 实现监视，且要在 new Vue 时就传入要检测的额数据。
-1）对象中后追加的熟悉，Vue 默认不做响应式处理；
-2）如需给后添加的属性做响应式，请使用如下 API：
-Vue.set(target, propertyName/index, value) 或者
-vm.$set(target, propertyName/index, value)
-3、如何监视数组中的数据？
-通过包裹数组更新元素的方法实现，本质就是做了两件事：
-a,调用原生对应的方法对数组进行更新；
-b,重新解析模板，进而更新页面。
-4、在Vue修改数组中的某个元素一定要用如下方法：
-1）使用这些数组API：push() pop() shifit() unshift() reverse() splice() sort()
-2）Vue.set() 或者 vm.$set()
-特别注意：Vue.set() 或者 vm.$set()不能给 vm 或者 vm 的根数据对象添加属性！
+2、若`\<input type="radio"/>`，则`v-model`收集的是`value`值，用户输入的就是`value`值；
 
-收集表单数据：
-若：\<input type="text"/>，则 v-model 收集的是 value 值，用户输入的就是 value 值。
-若：\<input type="radio"/>，则 v-model 收集的是 value 值，且要给标签配置 value 值。
-若：\<input type="checkbox"/> 1.没有配置 input 的 value 属性，那么收集的就是 checked（勾选 or 未勾选，是 bool 值） 2.配置 input 的 value 属性：
-1）v-model 的初始值是非数组，那么收集的就是 checked（勾选 or 未勾选，是 bool 值）
-2）v-model 的初始值是数组，那么收集的就是 value 组成的数组
-备注：v-model 的三个修饰符：
-lazy：失去焦点再收集数据
-number：输入字符串为有效的数字
-trim：输入首尾空格过滤
+3、若`\<input type="checkbox"/>`，如果没有配置`input`的`value`属性，那么收集的就是`checked`（勾选 or 未勾选，是布尔值）；如果配置了`input`的`value`属性：`v-model`的初始值是非数组，收集的就是`checked`；若`v-model`的初始值是数组，那么收集的就是`value`组成的数组。初始值要给一般给数组，并且保证每个选择项都不同的`value`值。
+
+4、`v-model`的三个修饰符：
+
+- `lazy`：失去焦点再收集数据；
+- `number`：输入字符串为有效的数字；
+- `trim`：输入首尾空格过滤。
+
+5、自定义控制组件
+
+ps：在表单form中的button如果不设置类型为button，每次点击都会触发表单提交。
+
+如果在自定义组件上使用`v-model`，那么vue将会在组件中设置一个非常具体的属性以及侦听一个特定的事件，并且可以在该组件中发出该事件。
+
+自定义组件：
+
+```vue
+<template>
+	<ul>
+		<li :class="{ active: modelValue === '差' }">
+			<button type="button" @click="activate('差')">差</button>
+		</li>
+		<li :class="{ active: modelValue === '一般' }">
+			<button type="button" @click="activate('一般')">一般</button>
+		</li>
+		<li :class="{ active: modelValue === '优秀' }">
+			<button type="button" @click="activate('优秀')">优秀</button>
+		</li>
+	</ul>
+</template>
+
+<script>
+	export default {
+		props: ['modelValue'],
+		emits: ['update:modelValue'],
+		methods: {
+			activate(option) {
+				console.log(this.modelValue)
+				this.$emit('update:modelValue', option)
+			}
+		}
+	}
+</script>
+
+<style>
+	.active {
+		border-color: limegreen;
+	}
+
+	.active button {
+		border-color: limegreen;
+	}
+
+	ul {
+		list-style: none;
+		margin: 00.5rem 0;
+		padding: 0;
+		display: flex;
+	}
+
+	li {
+		margin: 0;
+		border: 1px solid #ddd;
+		padding: 1em;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+
+	button {
+		font: inherit;
+		border: none;
+		background-color: darkorange;
+		cursor: pointer;
+	}
+</style>
+```
+
+配合`v-model`使用时，`v-mode=xxx`相当于`:modelValue="xxx" @update:modelValue="newValue => xxx = newValue"`。
 
 ## 其他指令
 
@@ -726,20 +771,6 @@ props:{
 
 \<style scoped>
 
-### 总结 TodoList 案例
-
-1.  组件化编码流程：
-    (1).拆分静态组件：组件要按照功能点拆分，命名不要与 html 元素冲突。
-    (2).实现动态组件：考虑好数据的存放位置，数据是一个组件在用，还是一些组件在用：
-    1).一个组件在用：放在组件自身即可。
-    2). 一些组件在用：放在他们共同的父组件上（状态提升）。
-    (3).实现交互：从绑定事件开始。
-1.  props 适用于：
-    (1).父组件 ----> 子组件 通信
-    (2).子组件 ----> 父组件 通信（要求父先给子一个函数）
-1.  使用 v-model 时要切记：v-model 绑定的值不能是 props 传过来的值，因为 props 是不可以修改的！
-1.  props 传过来的若是对象类型的值，修改对象中的属性时 Vue 不会报错，但不推荐这样做。 Vue 只会检测浅层次的 props 改变，比如直接改 props 里的变量值，或者直接更改对象的引用，那么控制台会提示报错，但是如果只是更改对象里的熟悉，Vue 检测不到，也就不会报错，但不要这么用！！！
-
 ### webStorage
 
 1. 存储内容大小一般支持 5MB 左右（不同浏览器可能还不一样）
@@ -770,7 +801,7 @@ props:{
 
    `JSON.parse(null)`的结果依然是 `null`。
 
-### 组件的自定义事件
+### 自定义事件
 
 1. 一种组件间通信的方式，适用于：**子组件 ----> 父组件**
 
@@ -778,27 +809,23 @@ props:{
 
 1. 绑定自定义事件：
 
-   第一种方式，在父组件中：\<Demo @xxx="test"/>  或 \<Demo v-xxx="test"/>
 
-   第二种方式，在父组件中：
-
-```javascript
-// 接收数据的组件中
-<Demo ref="demo"/>
+```vue
+// 接收数据的父组件中
+<receive-comp @some-event="setSomething"/>
 ......
 method:{
-  test(){
-   ...
-  }
-},
-mounted(){
-   this.$refs.xxx.$on('demo',this.test)
+    // 如果子组件有传入数据，那么下面方法中的参数即可接收该参数
+	setSomething(data){
+		...
+	}
 }
 
-// 发送数据的组件中
+// 发送数据的子组件中
+<button @click="triggerMethod">click</button>
 method:{
-  xxx(){
-    this.$emit('demo', [要发送的数据]);
+  triggerMethod(){
+    this.$emit('some-event', data);
   }
 }
 ```
@@ -864,7 +891,7 @@ mounted() {
 }
 ```
 
- 提供数据：`pubsub.publish('xxx',数据)`
+提供数据：`pubsub.publish('xxx',数据)`
 
 最好在 `beforeDestroy` 钩子中，用`PubSub.unsubscribe(pid)`去取消订阅。
 
@@ -882,10 +909,82 @@ this.$nextTick(回调函数)`
 
 当改变数据后，要基于更新后的新 DOM 进行某些操作时，要在 nextTick 所指定的回调函数中执行。
 
-### Vue 封装的过度与动画
+## `Vue`封装的过度与动画
+
+### Transition & Animation
+
+CSS3 中有两个用来做动画的属性，一个是`Transition`，另一个是`Animation`。
+
+差异比较
+
+| CSS3       | 差异                                                         |
+| ---------- | ------------------------------------------------------------ |
+| Transition | 在给定的持续时间内平滑地更改属性值（从一个值到另一个值），<br />也就是只需指定开始结束的参数，参数改变时就触发动画。 |
+|            | 常用于鼠标事件(`:hover` `:active` `:focus` `click`)或键盘输入时触发。 |
+|            | 需要事件触发，无法在网页加载时自动发生，是一次性的，不可重发发生，除非一再触发。 |
+|            | 只能定义开始状态和结束状态，不能定义中间状态。               |
+| Animation  | 可以自行编写动画，开始、进行中、结束时各阶段的变化，<br />适合用来做比较细微的动画表现，需要明确的指定关键帧(`@keyframes`)参数。 |
+|            | 网页加载时会直接执行，可以自行控制各阶段动画的变化。         |
+
+> `animations`和`transtitions`最大的不同在于，`transitions`是当参数发生改变时触发，而`animations`则是直接执行，所以动画效果需要明确指定关键帧的参数。
+
+### `Transition`写法
+
+```css
+.box {
+  width: 100px;
+  height: 100px;
+  background: purple;
+  transition: width 2s ease-out 2s;
+}
+
+.box:hover {
+  width: 200px;
+  height: 200px;
+  background: red;
+
+}
+```
+
+`Transition`写法相对`Animation`是比较简单的
+
+### `Animation`写法
+
+```css
+div{ 
+    animation: change 5s; // 8个属性中至少要有名称、时间
+}
+
+//设定开始与结束状态
+@keyframes change{
+    from{ background: #4BC0C8;}
+    to{ background: #C779D0;}
+}
+// from 就是0%，to 为100%。
+```
+
+```css
+div{ 
+    animation: change 5s ;
+}
+
+//设定多个状态，可以非常详细
+@keyframes change{
+    0%{ background: #4BC0C8;}
+    20%{ background: #C779D0;}
+    60%{ background: #FEAC5E;}
+    80%{ background: #185a9d;}
+    100%{ background: #4BC0C8;}
+}
+```
 
 1.  作用：在插入、更新或移除 DOM 元素时，在合适的时候给元素添加样式类名。
 1.  写法：
+1.  属性：
+    - name属性
+    - mode属性——`in-out` / `out-in`
+    - 过渡事件，`@before-enter=""` --  `@enter=""` -- `@after-enter=""` -- `@before-leave=""` -- `@leave=""` -- `@after-leave=""` -- `@enter-cancelled=""` -- `@leave-cancelled=""`
+    - :css属性——`false` / `true`
 1.  准备好样式：
 
     - 元素进入的样式：
@@ -896,8 +995,9 @@ this.$nextTick(回调函数)`
       1.  `v-leave`：离开的起点
       1.  `v-leave-active`：离开过程中
       1.  `v-leave-to`：离开的终点
-
 1.  使用\<transition>包裹要过度的元素，并配置 name 属性：
+    - name属性
+    - tag属性
 
 ```vue
 <transition name="hello">
@@ -905,7 +1005,21 @@ this.$nextTick(回调函数)`
 </transition>
 ```
 
-备注：若有多个元素需要过度，则需要使用：\<transition-group>，且每个元素都要指定`key`值。
+备注：
+
+- `transition`标签必须只能有一个直接子元素标签；
+
+- 若有多个元素需要过度，则需要使用：\<transition-group>，且每个元素都要指定`key`值。
+
+- `.xxx-move{}`样式配置用于解决多个元素平滑的进行移动移位。
+
+- `transition`标签也可以用于包装路由标签`router-view`，但仅在vue2中使用，如下：
+
+  ```vue
+  <transition>
+  	<router-view></router-view>
+  </transition>
+  ```
 
 ## vue 脚手架配置代理
 

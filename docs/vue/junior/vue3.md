@@ -1,4 +1,4 @@
-# Vue3 入门
+# Vue3 
 
 ## 1.Vue3 简介
 
@@ -128,6 +128,14 @@ npm run dev
 - reactive 定义的响应式数据是“深层次的”。
 - 内部基于 ES6 的 Proxy 实现，通过代理对象操作源对象内部数据进行操作。
 
+## 3.函数`methods`
+
+可以直接在`setup()`函数中定义函数，然后返回即可。
+
+```
+set
+```
+
 ## 4.Vue3.0 中的响应式原理
 
 ### vue2.x 的响应式
@@ -197,7 +205,7 @@ proxy.name = 'tom'
   - context：上下文对象
     - attrs: 值为对象，包含：组件外部传递过来，但没有在 props 配置中声明的属性, 相当于 `this.$attrs`。
     - slots: 收到的插槽内容, 相当于 `this.$slots`。
-    - emit: 分发自定义事件的函数, 相当于 `this.$emit`。
+    - emit: 分发自定义事件的函数, 相当于 `this.$emit`。在选项式`API`中，我们会使用`this.$emit`。
 
 ## 7.计算属性与监视
 
@@ -423,6 +431,11 @@ export default {
   1.  祖组件中：
 
 ```javascript
+ // 选项式
+provide: {
+    
+}
+// 组合式
 setup(){
 	......
     let car = reactive({name:'奔驰',price:'40万'})
@@ -434,6 +447,9 @@ setup(){
 2.  后代组件中：
 
 ```javascript
+// 选项式
+inject: []
+// 组合式
 setup(props,context){
 	......
     const car = inject('car')
