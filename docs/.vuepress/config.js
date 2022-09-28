@@ -132,7 +132,16 @@ module.exports = {
                         '/typescript/建立一个web框架.md'
                     ]
                 }
-            ]
+            ],
+            '/react/': [
+                {
+                    text: 'React',
+                    collapsible: true,
+                    children: [
+                        '/react/Complete React Developer.md',
+                    ]
+                }
+            ],
         },
         backToHome: '返回首页'
     }),

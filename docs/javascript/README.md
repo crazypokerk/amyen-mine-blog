@@ -1,1 +1,1 @@
-# this is javascript page
+# LEARN FOR 🔶JAVASCRIPT

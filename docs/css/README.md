@@ -1,1 +1,1 @@
-# this is CSS part
+# LEARN FOR 🔷CSS

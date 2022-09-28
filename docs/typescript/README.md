@@ -1,1 +1,1 @@
-# this is typescript page
+# LEARN FOR 🔵TYPESCRIPT
