@@ -44,6 +44,15 @@ module.exports = {
                 ]
             },
             {
+                text: '日常学习',
+                children: [
+                    {
+                        text: '踩坑学习',
+                        link: '/DailyForLearn/'
+                    }
+                ]
+            },
+            {
                 text: 'Home',
                 link: '/',
             },
@@ -142,6 +151,15 @@ module.exports = {
                     ]
                 }
             ],
+            '/DailyForLearn/': [
+                {
+                    text: '踩坑学习',
+                    collapsible: true,
+                    children: [
+                        '/DailyForLearn/getElementAPI.md'
+                    ]
+                }
+            ]
         },
         backToHome: '返回首页'
     }),
