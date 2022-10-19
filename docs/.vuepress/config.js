@@ -1,4 +1,19 @@
+const moment = require('moment')
+
 module.exports = {
+    plugins: [
+        [
+            '@vuepress/last-updated',
+            {
+                transformer: (timestamp, lang) => {
+                    // 不要忘了安装 moment
+                    const moment = require('moment')
+                    moment.locale(lang)
+                    return moment(timestamp).fromNow()
+                }
+            }
+        ]
+    ],
     locales: {
         '/': {
             lang: 'zh-CN'
@@ -9,9 +24,17 @@ module.exports = {
             'link', { rel: 'icon', href: '/amyen_icon.png' }
         ]
     ],
+    theme: 'reco',
     title: 'Young coconut',
     description: 'Favor object composition over class inheritance.',
     themeConfig: {
+        /* reco配置 */
+        // 备案
+        noFoundPageByTencent: false,
+        // 项目开始时间，只填写年份
+        startYear: '2021',
+
+        lastUpdated: '上次更新',
         logo: '/Coconut_logo.svg',
         // 默认主题配置
         home: '/',
@@ -58,7 +81,7 @@ module.exports = {
             },
             { text: 'Github', link: 'https://github.com/crazypokerk' }
         ],
-
+        subSidebar: 'auto',
         // 侧边栏数组
         // 所有页面会使用相同的侧边栏
         sidebar: {

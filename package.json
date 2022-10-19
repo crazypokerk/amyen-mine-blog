@@ -11,5 +11,9 @@
   "scripts": {
     "docs:dev": "vuepress dev docs",
     "docs:build": "vuepress build docs"
+  },
+  "dependencies": {
+    "moment": "^2.29.4",
+    "vuepress-theme-reco": "^1.6.16"
   }
 }
