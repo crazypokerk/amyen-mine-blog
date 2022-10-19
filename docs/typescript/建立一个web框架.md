@@ -4,7 +4,7 @@
 
 我们的目的是建立一个小型的 web 框架，一步一步对代码进行重构和优化，从而达到框架的效果及做到代码的复用。
 
-![课程framework概要.png](../.vuepress/public/images/ts-img/课程framework概要.png)
+![课程framework概要.png](../.vuepress/public/images/ts-img/framework.png)
 
 安装 parcel
 
@@ -18,7 +18,7 @@ npm install -g parcel-bundler
 parcel [filename.html]
 ```
 
-![提取方法和实现](../.vuepress/public/images/ts-img/提取方法和实现.png)
+![提取方法和实现](../.vuepress/public/images/ts-img/method_implement.png)
 
 ### 工程结构
 
@@ -98,11 +98,11 @@ npm install axios
 
 ### User 类
 
-![classUser结构](../.vuepress/public/images/ts-img/classUser结构.png)
+![classUser结构](../.vuepress/public/images/ts-img/classUser_structure.png)
 
 其中，`on()` 函数的目的是将事件添加到 `events` 对象中，该对象的键是事件名称，值是回调函数数组。
 
-![events对象结构](../.vuepress/public/images/ts-img/events对象结构.png)
+![events对象结构](../.vuepress/public/images/ts-img/events_obj.png)
 
 User.ts
 
@@ -166,7 +166,7 @@ export class User {
 
 先来看一下我们要重构后的结构：
 
-![重构后的User](../.vuepress/public/images/ts-img/重构后的User.png)
+![重构后的User](../.vuepress/public/images/ts-img/reconsitution_User.png)
 
 可以看到，我们的`User`类不再有各种参数和方法，都以组合的方式分布在其他类中。
 
@@ -242,7 +242,7 @@ class User {
 
 ### 提取 Sync 类
 
-![提取Sync类](../.vuepress/public/images/ts-img/提取Sync类.png)
+![提取Sync类](../.vuepress/public/images/ts-img/Sync_class.png)
 
 sync.ts
 
@@ -370,7 +370,7 @@ console.log(newUser)
 
 我们可以直接通过传递参数的形式，在`User`类上设置方法，调用对应类中的方法。
 
-![委托直接通过参数](../.vuepress/public/images/ts-img/委托直接通过参数.png)
+![委托直接通过参数](../.vuepress/public/images/ts-img/delegate_args.png)
 
 为了实现上图效果，我们可以给`User`类中的方法添加`get`关键字。
 
@@ -466,7 +466,7 @@ trigger = (eventName: string): void => {
 
 接下来以不同模块合作的方式实现剩下的三个委托方法。
 
-![set-fetch-save委托](../.vuepress/public/images/ts-img/set-fetch-save委托.png)
+![set-fetch-save委托](../.vuepress/public/images/ts-img/set-fetch-save-delegate.png)
 
 #### set()
 
@@ -592,7 +592,7 @@ user.save()
 
 ### 提取`Model`类
 
-![提取Model类](../.vuepress/public/images/ts-img/提取Model类.png)
+![提取Model类](../.vuepress/public/images/ts-img/Model_class.png)
 
 我们可以将`User`类中通用方法提取到`Model`类中，这样谁需要，只要**继承**它就好了，其实这也不能说明组合是最优选择，只有在不同的情况下使用不同的方法才能获得最优的效果。
 
@@ -806,7 +806,7 @@ get get() {
 
 经过上面的重构后，我们的`User`代码还是有漏洞，漏洞在于我们在使用`fetch`方法时，都需要传入对象的`id`，真实环境中，我们不可能知道用户的`id`有什么，有哪些，我们不可能将用户的`id`硬编码。所以，为了解决此问题，我们需要提取一个`Collection`基类。
 
-![Collection基类](../.vuepress/public/images/ts-img/Collection基类.png)
+![Collection基类](../.vuepress/public/images/ts-img/Collection_baseclass.png)
 
 ```typescript
 import axios from 'axios'
@@ -947,7 +947,7 @@ collection.fetch()
 
 ### 实现页面渲染功能
 
-![UserForm类](../.vuepress/public/images/ts-img/UserForm类.png)
+![UserForm类](../.vuepress/public/images/ts-img/UserForm_class.png)
 
 我们的目的是在`UserForm`类中通过模板方法实现在根元素上挂载元素节点，并渲染。
 
@@ -1078,7 +1078,7 @@ template(): string {
 
 运行后，当我们点击按钮，却没有反应，这是为什么呢？
 
-![实现值绑定功能-1](../.vuepress/public/images/ts-img/实现值绑定功能-1.png)
+![实现值绑定功能-1](../.vuepress/public/images/ts-img/bind_1.png)
 
 其实，`age`的值已经有了改变，只不过页面没有重新渲染，所以看到的还是最初的值。为了解决这个问题，我们需要设置一个监听，在`UserForm`初始化的时候监听页面的变化，为此需要抽取出一个函数`bindModel()`：
 
@@ -1100,7 +1100,7 @@ export class UserForm {
 
 当我们兴高采烈的点击按钮时，发现点击一次就多出来渲染的模板`HTML`。
 
-![实现值绑定功能-2](../.vuepress/public/images/ts-img/实现值绑定功能-2.png)
+![实现值绑定功能-2](../.vuepress/public/images/ts-img/bind_2.png)
 
 难受不，解决也不难，我们给`render()`方法添加一行代码，先设置现有的元素为空即可。
 
@@ -1121,7 +1121,7 @@ render(): void {
 
 上面完成的功能虽说可以实现基本功能，但是复用性就很差，在`UserForm`这个类中许多方法是可以提取出来进行复用的，所以我们需要抽取出一个`View`抽象类。
 
-![提取View抽象类](../.vuepress/public/images/ts-img/提取View抽象类.png)
+![提取View抽象类](../.vuepress/public/images/ts-img/View_abs_class.png)
 
 ```typescript
 import { User } from '../models/User'
@@ -1208,7 +1208,7 @@ export class UserForm extends View<User, UserProps> {
 
 ## 组件嵌套
 
-![组件嵌套](../.vuepress/public/images/ts-img/组件嵌套.png)
+![组件嵌套](../.vuepress/public/images/ts-img/component_nest.png)
 
 从上图可以看出，我们的目的是为了将在`View`类中设置一个对象，该对象可以存储嵌入的模板组件。所以我们先给`View`类中添加`regionMap()`方法和`regions`对象。
 

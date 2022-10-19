@@ -6,7 +6,7 @@
   "author": "crazypokerk",
   "license": "MIT",
   "devDependencies": {
-    "vuepress": "^2.0.0-beta.49"
+    "vuepress": "^1.9.7"
   },
   "scripts": {
     "docs:dev": "vuepress dev docs",
