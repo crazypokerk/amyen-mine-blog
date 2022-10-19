@@ -29,7 +29,6 @@ module.exports = {
     description: 'Favor object composition over class inheritance.',
     themeConfig: {
         /* reco配置 */
-        // 备案
         noFoundPageByTencent: false,
         // 项目开始时间，只填写年份
         startYear: '2021',
@@ -45,15 +44,15 @@ module.exports = {
                 items: [
                     {
                         text: 'CSS',
-                        link: '/css/'
+                        link: '/css/PartI/01-前端简介'
                     },
                     {
                         text: 'JavaScript',
-                        link: '/javascript/'
+                        link: '/javascript/the_advanced_concepts'
                     },
                     {
                         text: 'TypeScript',
-                        link: '/typescript/'
+                        link: '/typescript/建立一个web框架'
                     }
                 ]
             },
@@ -62,11 +61,11 @@ module.exports = {
                 items: [
                     {
                         text: 'Vue',
-                        link: '/vue/'
+                        link: '/vue/junior/vue2'
                     },
                     {
                         text: 'React',
-                        link: '/react/'
+                        link: '/react/Complete React Developer'
                     }
                 ]
             },
@@ -75,7 +74,7 @@ module.exports = {
                 items: [
                     {
                         text: '踩坑学习',
-                        link: '/DailyForLearn/'
+                        link: '/DailyForLearn/getElementAPI'
                     }
                 ]
             },
