@@ -1,6 +1,5 @@
 ---
 home: true
-heroImage: /homepage.png
 heroText: null
 tagline: null
 
