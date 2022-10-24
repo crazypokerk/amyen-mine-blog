@@ -1,5 +1,3 @@
-
-
 # CSS 语法与选择器
 
 
@@ -8,11 +6,11 @@
 
 ### 层叠样式表
 
-网页实际上是一个多层的结构，通过 CSS 可以分别为网页的每一个层来设置样式，而最终我们能看到只是网页的最上边一层
+网页实际上是一个多层的结构，通过 CSS 可以分别为网页的每一个层来设置样式，而最终我们能看到只是网页的最上边一层；
 
-总之一句话，CSS 用来设置网页中元素的样式
+总之一句话，CSS 用来设置网页中元素的样式。
 
-使用 CSS 来修改元素样式的方式大致可以分为 3 种
+使用 CSS 来修改元素样式的方式大致可以分为 3 种。
 
 
 ### 内联样式（行内样式）
@@ -23,7 +21,7 @@
 <p style="color:red;font-size:60px;">内联样式（行内样式）</p>
 ```
 
-问题：使用内联样式，样式只能对一个标签生效。如果希望影响到多个元素，必须在每一个元素中都复制一遍；并且当样式发生变化时，我们必须要一个一个的修改，非常的不方便。（注意：开发时绝对不要使用内联样式）
+问题：使用内联样式，样式只能对一个标签生效。如果希望影响到多个元素，必须在每一个元素中都复制一遍；并且当样式发生变化时，我们必须要一个一个的修改，非常的不方便。（注意：**开发时绝对不要使用内联样式**）
 
 
 ### 内部样式表
@@ -39,7 +37,7 @@ p{
 </style>
 ```
 
-问题：我们的内部样式表只能对一个网页起作用，它里边的样式不能跨页面进行复用
+问题：我们的内部样式表只能对一个网页起作用，它里边的样式不能跨页面进行复用。
 
 
 ### 外部样式表
@@ -327,7 +325,7 @@ p ~ span {
 
 ## 6. 伪类选择器
 
-伪类（不存在的类，特殊的类）
+伪类（不存在的类，特殊的类）。
 
 伪类用来描述一个元素的特殊状态，比如：第一个子元素、被点击的元素、鼠标移入的元素.…
 
@@ -377,8 +375,6 @@ ul > li:last-child {
 }
 ```
 
-![](https://img-blog.csdnimg.cn/img_convert/3373666820269df4830e7827c7b9623b.png#crop=0&crop=0&crop=1&crop=1&id=BLtPL&originHeight=327&originWidth=186&originalType=binary&ratio=1&rotation=0&showTitle=false&status=done&style=none&title=)
-
 - `:link` 未访问的链接
 - `:visited` 已访问的链接 
    - 由于隐私的原因，所以`visited`这个伪类只能修改链接的颜色
@@ -407,12 +403,10 @@ a:active {
 }
 ```
 
-![](https://img-blog.csdnimg.cn/img_convert/afda6908ddd6c7e9cab45751aabbcb5c.gif#crop=0&crop=0&crop=1&crop=1&id=mylR9&originHeight=249&originWidth=749&originalType=binary&ratio=1&rotation=0&showTitle=false&status=done&style=none&title=)
-
 
 ## 7. 伪元素选择器
 
-伪元素，表示页面中一些特殊的并不真实的存在的元素（特殊的位置）
+伪元素，表示页面中一些特殊的并不真实的存在的元素（特殊的位置）。
 
 伪元素使用`::`开头
 
@@ -452,13 +446,29 @@ div::after {
 }
 ```
 
-![](https://img-blog.csdnimg.cn/img_convert/d00bc5df427763fc326a624449e0eec2.gif#crop=0&crop=0&crop=1&crop=1&id=hY5fo&originHeight=417&originWidth=1915&originalType=binary&ratio=1&rotation=0&showTitle=false&status=done&style=none&title=)
+## 8.伪元素和伪类的区别和作用
+
+- 伪元素：在内容元素的前后插入额外的元素或样式，但是这些元素实际上并不在DOM文档中生成。它们只在外部显示可见，但不会在文档的源代码中找到它们。因此成为”伪“元素，例如：
+
+```css
+p::before {content:"第一章：";}
+p::after {content:"Hot!";}
+p::first-line {background:red;}
+p::first-letter {font-size:30px;}
+```
+
+- 伪类：将特殊的效果添加到特定选择器上。它是在已有元素上添加，不会产生新的元素，例如：
+
+```css
+a:hover {color: #FF00FF}
+p:first-child {color: red}
+```
+
+**总结**：伪类是通过在元素选择器上加入伪类改变元素状态，而伪元素通过对元素的操作进行对元素的改变。
 
 
-## 8. CSS Dinner 游戏
+## 9. CSS Dinner 游戏
 
 官方地址：[CSS Diner - Where we feast on CSS Selectors!](https://flukeout.github.io/)
 
 CSS Dinner 是一个帮助初学者快速熟悉 css 各种选择器的网页游戏
-
-![](https://img-blog.csdnimg.cn/img_convert/3655328d85f103c4981afb3105ca3538.png#crop=0&crop=0&crop=1&crop=1&id=TnWIA&originHeight=896&originWidth=1906&originalType=binary&ratio=1&rotation=0&showTitle=false&status=done&style=none&title=)

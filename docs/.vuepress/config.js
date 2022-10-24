@@ -42,7 +42,7 @@ module.exports = {
                 items: [
                     {
                         text: 'CSS',
-                        link: '/css/PartI/01-前端简介'
+                        link: '/css/01-前端简介'
                     },
                     {
                         text: 'JavaScript',
@@ -83,50 +83,29 @@ module.exports = {
         // 所有页面会使用相同的侧边栏
         sidebar: {
             '/css/': [{
-                title: 'Part I',
+                title: '基础知识',
                 children: [
-                    { title: '前端简介', path: '/css/PartI/01-前端简介' },
-                    { title: '前端开发准备', path: '/css/PartI/02-前端开发准备' }
-                ]
-            },
-            {
-                title: 'Part II',
-                children: [
-                    { title: '字符实体与语义标签', path: '/css/PartII/03-字符实体与语义标签' },
-                    { title: 'CSS语法与选择器', path: '/css/PartII/04-CSS语法与选择器' },
-                    { title: '样式继承与其他概念', path: '/css/PartII/05-样式继承与其他概念' },
-                    { title: '盒模型', path: '/css/PartII/06-盒模型' },
-                    { title: '实战练习', path: '/css/PartII/07-实战练习' },
-                    { title: '盒模型补充及田径场实战', path: '/css/PartII/08-盒模型补充及田径场实战' },
-                ]
-            },
-            {
-                title: 'Part III',
-                children: [
-                    { title: '浮动', path: '/css/PartIII/09-浮动' },
-                    { title: '高度塌陷与BFC', path: '/css/PartIII/10-高度塌陷与BFC' },
-                    { title: '定位', path: '/css/PartIII/11-定位' },
-                    { title: '字体', path: '/css/PartIII/12-字体' },
-                    { title: '背景', path: '/css/PartIII/13-背景' },
-                    { title: '雪碧图与渐变', path: '/css/PartIII/14-雪碧图与渐变' },
-                    { title: '表格', path: '/css/PartIII/15-表格' },
-                    { title: '过渡与动画', path: '/css/PartIII/16-过渡与动画' },
-                    { title: '变形：平移、旋转与缩放', path: '/css/PartIII/17-变形：平移、旋转与缩放' },
-                ]
-            },
-            {
-                title: 'Part IV',
-                children: [
-                    { title: 'less简介', path: '/css/PartIV/18-less简介' },
-                    { title: '弹性盒简介', path: '/css/PartIV/19-弹性盒简介' },
-                    { title: '像素与视口', path: '/css/PartIV/20-像素与视口' },
-                    { title: '媒体查询', path: '/css/PartIV/21-媒体查询' },
-                ]
-            },
-            {
-                title: 'Part V',
-                children: [
-                    { title: 'grid布局', path: '/css/PartV/22-grid布局' },
+                    { title: '前端简介', path: '/css/01-前端简介' },
+                    { title: '前端开发准备', path: '/css/02-前端开发准备' },
+                    { title: '字符实体与语义标签', path: '/css/03-字符实体与语义标签' },
+                    { title: 'CSS语法与选择器', path: '/css/04-CSS语法与选择器' },
+                    { title: '样式继承与其他概念', path: '/css/05-样式继承与其他概念' },
+                    { title: '盒模型', path: '/css/06-盒模型' },
+                    { title: '盒模型补充及田径场实战', path: '/css/07-盒模型补充及田径场实战' },
+                    { title: '浮动', path: '/css/08-浮动' },
+                    { title: '高度塌陷与BFC', path: '/css/09-高度塌陷与BFC' },
+                    { title: '定位', path: '/css/10-定位' },
+                    { title: '字体', path: '/css/11-字体' },
+                    { title: '背景', path: '/css/12-背景' },
+                    { title: '雪碧图与渐变', path: '/css/13-雪碧图与渐变' },
+                    { title: '表格', path: '/css/14-表格' },
+                    { title: '过渡与动画', path: '/css/15-过渡与动画' },
+                    { title: '变形：平移、旋转与缩放', path: '/css/16-变形：平移、旋转与缩放' },
+                    { title: 'less简介', path: '/css/17-less简介' },
+                    { title: '弹性盒简介', path: '/css/18-弹性盒简介' },
+                    { title: '像素与视口', path: '/css/19-像素与视口' },
+                    { title: '媒体查询', path: '/css/20-媒体查询' },
+                    { title: 'grid布局', path: '/css/21-grid布局' },
                 ]
             }],
             '/javascript/': [
@@ -174,7 +153,7 @@ module.exports = {
                     ]
                 }
             ]
-        },
-        backToHome: '返回首页'
+        }
     }
 }
+

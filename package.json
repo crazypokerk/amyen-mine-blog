@@ -13,7 +13,9 @@
     "docs:build": "vuepress build docs"
   },
   "dependencies": {
+    "markdown-it-emoji": "^2.0.2",
     "moment": "^2.29.4",
+    "vue-server-renderer": "^2.7.13",
     "vuepress-theme-reco": "^1.6.16"
   }
 }
