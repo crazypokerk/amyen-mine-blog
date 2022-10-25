@@ -6,11 +6,13 @@
   "author": "crazypokerk",
   "license": "MIT",
   "devDependencies": {
-    "vuepress": "^1.9.7"
+    "vuepress": "^1.9.7",
+    "vuepress-plugin-check-md": "^0.0.2"
   },
   "scripts": {
     "docs:dev": "vuepress dev docs",
-    "docs:build": "vuepress build docs"
+    "docs:build": "vuepress build docs",
+    "check:md": "vuepress check-md docs"
   },
   "dependencies": {
     "markdown-it-emoji": "^2.0.2",

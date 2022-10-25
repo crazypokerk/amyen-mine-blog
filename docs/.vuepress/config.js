@@ -17,6 +17,9 @@ module.exports = {
                 successText: '复制成功',
                 backgroundColor: '#000000',
             }
+        ],
+        [
+            'check-md'
         ]
     ],
     locales: {
