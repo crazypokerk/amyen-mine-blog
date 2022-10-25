@@ -10,6 +10,13 @@ module.exports = {
                     return moment(timestamp).fromNow()
                 }
             }
+        ],
+        [
+            'vuepress-plugin-code-copy', {
+                color: '#ffffff',
+                successText: '复制成功',
+                backgroundColor: '#000000',
+            }
         ]
     ],
     locales: {

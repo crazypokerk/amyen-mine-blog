@@ -6,7 +6,8 @@
   "author": "crazypokerk",
   "license": "MIT",
   "devDependencies": {
-    "vuepress": "^1.9.7"
+    "vuepress": "^1.9.7",
+    "vuepress-plugin-nuggets-style-copy": "^1.0.3"
   },
   "scripts": {
     "docs:dev": "vuepress dev docs",
@@ -16,6 +17,7 @@
     "markdown-it-emoji": "^2.0.2",
     "moment": "^2.29.4",
     "vue-server-renderer": "^2.7.13",
+    "vuepress-plugin-code-copy": "^1.0.6",
     "vuepress-theme-reco": "^1.6.16"
   }
 }
