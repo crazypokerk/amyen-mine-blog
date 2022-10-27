@@ -1,6 +1,6 @@
 # 学就废的记录一：getElement\* API
 
-<img src="../.vuepress/public/images/日常文章记录img/getElementAPI-1.jpg" alt="getElementAPI-1" style="zoom:80%;" />
+<img src="../.vuepress/public/images/dailyArticleImg/getElementAPI-1.jpg" alt="getElementAPI-1" style="zoom:80%;" />
 
 ## 问题缘由
 

@@ -82,7 +82,7 @@ module.exports = {
                 items: [
                     {
                         text: '踩坑学习',
-                        link: '/DailyForLearn/getElementAPI'
+                        link: '/DailyForLearn/Learn1getElementAPI'
                     }
                 ]
             },
@@ -159,7 +159,8 @@ module.exports = {
                     text: '踩坑学习',
                     collapsible: true,
                     children: [
-                        { title: 'getElement*系统', path: '/DailyForLearn/getElementAPI' }
+                        { title: 'Web学习积累--getElement*系统', path: '/DailyForLearn/Learn1getElementAPI' },
+                        { title: 'Web学习积累--输入URL后的那些事', path: '/DailyForLearn/Learn2AfterTypeURL' }
                     ]
                 }
             ]
