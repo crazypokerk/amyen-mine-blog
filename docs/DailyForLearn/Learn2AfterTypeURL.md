@@ -6,6 +6,8 @@
 
 那么在浏览器里，从用户输入 URL 敲下回车的那一刻起，这中间发生了什么？我们一步一步来探索。
 
+![render_flow](../.vuepress/public/images/dailyArticleImg/render_flow.svg)
+
 ## 1.用户输入
 
 当用户打开浏览器，在上方地址栏中输入一段字符后，地址栏会判断用户输入的关键字是**搜索内容**，还是**请求的 URL**。
