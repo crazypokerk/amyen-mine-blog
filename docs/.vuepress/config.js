@@ -83,6 +83,10 @@ module.exports = {
                     {
                         text: '踩坑学习',
                         link: '/DailyForLearn/Learn1getElementAPI'
+                    },
+                    {
+                        text: '性能优化',
+                        link: '/WebPerformance/WebPerformanceDevTools1'
                     }
                 ]
             },
@@ -161,6 +165,15 @@ module.exports = {
                     children: [
                         { title: 'Web学习积累--getElement*系统', path: '/DailyForLearn/Learn1getElementAPI' },
                         { title: 'Web学习积累--输入URL后的那些事', path: '/DailyForLearn/Learn2AfterTypeURL' }
+                    ]
+                }
+            ],
+            '/WebPerformance/': [
+                {
+                    text: '性能优化',
+                    collapsible: true,
+                    children: [
+                        { title: 'Web Performance--浏览器开发者工具（一）', path: '/WebPerformance/WebPerformanceDevTools1' },
                     ]
                 }
             ]
