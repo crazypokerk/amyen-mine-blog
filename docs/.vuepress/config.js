@@ -174,6 +174,7 @@ module.exports = {
                     collapsible: true,
                     children: [
                         { title: 'Web Performance--浏览器开发者工具（一）', path: '/WebPerformance/WebPerformanceDevTools1' },
+                        { title: 'Web Performance--浏览器开发者工具（二）', path: '/WebPerformance/WebPerformanceDevTools2' },
                     ]
                 }
             ]
