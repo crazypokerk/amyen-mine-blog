@@ -9,16 +9,16 @@
 从网络传给渲染引擎的 HTML 文件字节流是无法直接被渲染引擎理解的，所以要将 HTML 文件转化为渲染引擎可以理解的内部结构，而这个结构就是 DOM。DOM 提供了对 HTML 文档结构化的表。在渲染引擎中，DOM 有三个层面的作用。
 
 - 从页面的视角来看，DOM 是生成页面的基础数据结构。
-- 从 JavaScript 脚本视角来看，DOM 提供给 JavaScript 脚本操作的接口，通过这套接口，JavaScript 可以对 DOM 结构进行访问，从而改变文档的结构、样式和内容。
+- 从JavaScript脚本视角来看，DOM 提供给 JavaScript 脚本操作的接口，通过这套接口，JavaScript 可以对 DOM 结构进行访问，从而改变文档的结构、样式和内容。
 - 从安全视角来看，DOM 是一道安全防护线，一些不安全的内容在 DOM 解析阶段就被拒之门外了。
 
-总而言之，DOM 是表述 HTML 的内部数据结构，它会将 Web 页面和 JavaScript 脚本连接起来，并过滤一些不安全的内容。
+总而言之，DOM 是表述 HTML 的内部数据结构，它会将Web页面和 JavaScript 脚本连接起来，并过滤一些不安全的内容。
 
 ## DOM 树如何生成
 
 在渲染引起内部，有一个叫**HTML 解析器**的模板，它的职责就是负责将 HTML 字节流转换为 DOM 结构。
 
-首先，我们先搞清楚一个问题：<u>HTML 解析器是等整个 TML 文档加载完成之后开始的，还是随着 HTML 文档边加载边解析的？</u>
+首先，我们先搞清楚一个问题：<u>HTML 解析器是等整个 HTML 文档加载完成之后开始的，还是随着 HTML 文档边加载边解析的？</u>
 
 > 答案是：HTML 解析器并不是等到整个文档加载完成之后再解析的，而是网络进程加载了多少数据，HTML 解析器就解析多少数据。
 
@@ -30,15 +30,13 @@
 
 如上图所示，字节流转换为 DOM 需要三个阶段。
 
-### 阶段一，通过分词器将字节流转换为 Token
-
-浏览器的 V8 引擎在编译 JavaScript 过程中的第一步是做词法分析，将 JavaScript 先分解为一个个的 Token，解析 HTML 也是如此，需要先通过分词器先将字节流转换为一个个 Token，分为`Tag Token`和`文本Token`。
+阶段一，通过分词器将字节流转换为 Token。浏览器的 V8 引擎在编译 JavaScript 过程中的第一步是做词法分析，将 JavaScript 先分解为一个个的 Token，解析 HTML 也是如此，需要先通过分词器先将字节流转换为一个个 Token，分为`Tag Token`和`文本Token`。
 
 ![createToken](../.vuepress/public/images/WebPerformance/createToken.svg)
 
-由上图可以看出，Tag Token 又分为 StartTag 和 EndTag，比如`<body>`就是 StartTag，`</body>`就是 EndTag，分别对应图中的蓝色和粉红色块，文本 Token 对应的绿色块。
+由上图可以看出，`Tag Token` 又分为 StartTag 和 `EndTag`，比如`<body>`就是 `StartTag`，`</body>`就是 `EndTag`，分别对应图中的蓝色和粉红色块，`文本 Token`对应的绿色块。
 
-至于后续的第二个和第三个阶段是同步进行的，需要将 Token 解析为 DOM 节点，并将 DOM 节点添加到 DOM 树中。
+至于后续的第二个和第三个阶段是同步进行的，需要将Token解析为DOM节点，并将DOM节点添加到DOM树中。
 
 HTML 解析器维护了一个 Token 栈结构，该 Token 栈主要用来计算节点之间的父子关系，在第一个阶段中生成的 Token 会被按照顺序压到栈中。
 
@@ -83,7 +81,7 @@ HTML 解析器维护了一个 Token 栈结构，该 Token 栈主要用来计算�
 
 以上的一些列过程就是 DOM 生成的过程。不过在实际生产环境中，HTML 源文件中既包含 CSS 和 JavaScript，又包含图片、音频、视频等文件，所以处理过程也远远比上面的实例复杂。
 
-### JavaScript 如何影响 DOM 生成
+## JavaScript 如何影响 DOM 生成
 
 来一段稍微复杂点的 HTML：
 
