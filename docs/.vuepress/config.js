@@ -74,6 +74,10 @@ module.exports = {
                     {
                         text: 'React',
                         link: '/react/Complete React Developer'
+                    },
+                    {
+                        text: '构建工具',
+                        link: '/BuildTools/webBuildToolsStart'
                     }
                 ]
             },
@@ -155,6 +159,15 @@ module.exports = {
                     collapsible: true,
                     children: [
                         { title: 'React入门', path: '/react/Complete React Developer' }
+                    ]
+                }
+            ],
+            '/BuildTools/': [
+                {
+                    text: '构建工具',
+                    collapsible: true,
+                    children: [
+                        { title: 'web工程化构建工具--初识', path: '/BuildTools/webBuildToolsStart' }
                     ]
                 }
             ],
